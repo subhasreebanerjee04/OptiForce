@@ -1,4 +1,4 @@
-## OptiForce - Workforce Cost Optimizer
+### OptiForce - Workforce Cost Optimizer
 
 OPTIFORCE is a user-friendly Flask web application for workforce cost optimization. It leverages LLM features to help organizations optimize hiring strategies across global markets, enabling significant cost savings and operational efficiency.
 

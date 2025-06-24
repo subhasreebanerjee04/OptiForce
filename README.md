@@ -37,7 +37,7 @@ python optiforce_app.py
 
 ## Project Structure:
 
-![proj_struct](https://github.com/user-attachments/assets/63092889-fc6b-4eb3-8904-4eee0c6d11df)
+
 
 ## API Endpoints:
 

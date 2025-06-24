@@ -37,16 +37,7 @@ python optiforce_app.py
 
 ## Project Structure:
 
-optiforce/
-├── optiforce_app.py       # Main Flask application
-├── requirements.txt       # Python dependencies
-├── templates/
-│   └── index.html         # HTML template
-└── static/
-    ├── css/
-    │   └── style.css      # Stylesheet
-    └── js/
-        └── app.js         # Frontend JavaScript
+![proj_struct](https://github.com/user-attachments/assets/63092889-fc6b-4eb3-8904-4eee0c6d11df)
 
 ## API Endpoints:
 

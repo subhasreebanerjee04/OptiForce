@@ -8,4 +8,4 @@ blinker==1.6.3
 transformers==4.41.0
 torch==2.5.0
 accelerate==0.31.0
-tokenizers>=0.13.3
+tokenizers==0.13.3

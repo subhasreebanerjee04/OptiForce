@@ -1,9 +1,21 @@
 services:
   - type: web
-    name: my-python-app
+    name: flask-llm-app
     env: python
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn app:app"
+    buildCommand: |
+      # Set writable paths for Rust
+      export CARGO_HOME=/tmp/cargo
+      export RUSTUP_HOME=/tmp/rustup
+      export MATURIN_CACHE_DIR=/tmp/maturin
+
+      # Install Rust
+      curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-toolchain stable --profile minimal
+      source $CARGO_HOME/env
+
+      # Install Python packages
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: gunicorn optiforce_app:app
     envVars:
       - key: CARGO_HOME
         value: /tmp/cargo

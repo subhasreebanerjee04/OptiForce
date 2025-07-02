@@ -8,4 +8,4 @@ blinker==1.6.3
 transformers==4.41.0
 torch==2.5.0
 accelerate==0.31.0
-tokenizers @ https://github.com/huggingface/tokenizers/releases/download/python-0.15.2/tokenizers-0.15.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+tokenizers>=0.14.1

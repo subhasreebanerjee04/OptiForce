@@ -12,7 +12,7 @@ services:
 
       pip install --upgrade pip
       pip install -r requirements.txt
-    startCommand: gunicorn main:app
+    startCommand: gunicorn optiforce_app:app
     envVars:
       - key: CARGO_HOME
         value: /tmp/cargo

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiForce - Workforce Cost Optimization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero-section">
+        <div class="container hero-content">
+            <h1 class="hero-title">OptiForce - Workforce Cost Optimization</h1>
+            <!--<h3 class="hero-subtitle">Optimize your hiring strategy across global markets with cost analysis and intelligent recommendations.</h3>-->
+            <h4 class="hero-description">
+                <i> Stop Overpaying. Start OptiForcing.</i>
+            </h4>
+        </div>
+    </header>
+    <main>
+        <!-- Landing Page / Form -->
+        <section id="landing-page" class="page-section active">
+            <div class="form-section">
+                <div class="container">
+                    <div class="form-container card">
+                        <h2>Define Your Workforce Requirements</h2>
+                        <form id="workforce-form" class="workforce-form">
+                            <div class="form-group">
+                                <label for="job-role" class="form-label">Job Role</label>
+                                <select id="job-role" class="form-control" required>
+                                    <option value="">Select a job role...</option>
+                                    <option value="software-engineer">Software Engineer</option>
+                                    <option value="data-scientist">Data Scientist</option>
+                                    <option value="product-manager">Product Manager</option>
+                                    <option value="devops-engineer">DevOps Engineer</option>
+                                    <option value="ui-ux-designer">UI/UX Designer</option>
+                                    <option value="marketing-manager">Marketing Manager</option>
+                                    <option value="sales-manager">Sales Manager</option>
+                                    <option value="hr-manager">HR Manager</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location" class="form-label">Primary Location</label>
+                                <select id="location" class="form-control" required>
+                                    <option value="">Select a location...</option>
+                                    <option value="usa">USA</option>
+                                    <option value="germany">Germany</option>
+                                    <option value="india">India</option>
+                                    <option value="portugal">Portugal</option>
+                                    <option value="poland">Poland</option>
+                                    <option value="ukraine">Ukraine</option>
+                                    <option value="philippines">Philippines</option>
+                                    <option value="mexico">Mexico</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="headcount" class="form-label">Headcount Required</label>
+                                <input type="number" id="headcount" class="form-control" min="1" max="100" placeholder="Enter number of employees (1-100)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="constraints" class="form-label">Business Constraints</label>
+                                <select id="constraints" class="form-control" required>
+                                    <option value="">Select your priority...</option>
+                                    <option value="cost-focused">Cost Focused</option>
+                                    <option value="balanced" selected>Balanced Approach</option>
+                                    <option value="quality-focused">Quality Focused</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+    <label for="employment-type" class="form-label">Employment Type</label>
+    <select id="employment-type" class="form-control" required>
+        <option value="both" selected>Both FTE & Contractor</option>
+        <option value="fte">Full-Time Employee (FTE)</option>
+        <option value="contractor">Contractor</option>
+    </select>
+</div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn--primary btn--lg btn--full-width">Analyze Workforce Costs</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Screen -->
+        <section id="loading-screen" class="page-section">
+            <div class="container">
+                <div class="loading-container">
+                    <div class="loading-content">
+                        <h2>Optimizing Your Workforce Strategy</h2>
+                        <div class="phase-progress">
+                            <div class="phase-item" id="phase-1">
+                                <div class="phase-icon">📊</div>
+                                <div class="phase-text">Phase 1: Data Ingestion</div>
+                            </div>
+                            <div class="phase-item" id="phase-2">
+                                <div class="phase-icon">⚡</div>
+                                <div class="phase-text">Phase 2: Optimization Engine</div>
+                            </div>
+                            <div class="phase-item" id="phase-3">
+                                <div class="phase-icon">🤖</div>
+                                <div class="phase-text">Phase 3: AI Analysis</div>
+                            </div>
+                            <div class="phase-item" id="phase-4">
+                                <div class="phase-icon">📈</div>
+                                <div class="phase-text">Phase 4: Results Generation</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page-section">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Workforce Optimization Results</h2>
+                    <button id="back-to-form" class="btn btn--secondary">New Analysis</button>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="potential-savings">-</div>
+                        <div class="metric-label">Potential Annual Savings</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="optimal-locations">-</div>
+                        <div class="metric-label">Optimal Locations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="cost-reduction">-</div>
+                        <div class="metric-label">Cost Reduction %</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="payback-period">-</div>
+                        <div class="metric-label">Payback Period</div>
+                    </div>
+                </div>
+
+                <!-- Scenario Comparison -->
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Optimization Scenarios</h3>
+                        <div class="scenario-tabs">
+                            <button class="scenario-tab active" data-scenario="cost-effective">Most Cost-Effective</button>
+                            <button class="scenario-tab" data-scenario="balanced">Balanced Approach</button>
+                            <button class="scenario-tab" data-scenario="current">Current Strategy</button>
+                        </div>
+                        <div class="scenario-content">
+                            <div class="scenario-chart">
+                                <canvas id="scenario-chart" height="300"></canvas>
+                            </div>
+                            <div class="scenario-details" id="scenario-details">
+                                <!-- Scenario details will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geographic Analysis -->
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Geographic Cost Heatmap</h3>
+                            <div class="heatmap-container">
+                                <canvas id="location-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Cost Breakdown Analysis</h3>
+                            <div class="breakdown-container">
+                                <canvas id="breakdown-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Insights -->
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Insights</h3>
+                        <div class="insights-container" id="ai-insights">
+                            <!-- AI insights will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Calculator -->
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Interactive Savings Calculator</h3>
+                        <div class="calculator-container">
+                            <div class="calculator-inputs">
+                                <div class="form-group">
+                                    <label class="form-label">Adjust Location Mix:</label>
+                                    <div class="location-sliders" id="location-sliders">
+                                        <!-- Sliders will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calculator-results">
+                                <div class="result-item">
+                                    <span class="result-label">Total Annual Cost:</span>
+                                    <span class="result-value" id="calc-total-cost">$0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Annual Savings:</span>
+                                    <span class="result-value savings" id="calc-savings">$0</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">ROI:</span>
+                                    <span class="result-value" id="calc-roi">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

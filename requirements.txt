@@ -10,6 +10,6 @@ accelerate==0.31.0
 torch==2.2.2  # Slightly older but more stable version
 transformers==4.38.2
 tokenizers==0.15.2  # Version known to work with PyO3 0.20
-Flask==2.3.3
+numpy==1.26.4  
 gunicorn==21.2.0  # Stable version for Python 3.12
 

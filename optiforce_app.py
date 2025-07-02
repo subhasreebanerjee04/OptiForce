@@ -735,4 +735,4 @@ def get_job_roles():
     return jsonify(data_service.job_roles)
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5050)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))

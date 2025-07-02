@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: my-python-app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: CARGO_HOME
+        value: /tmp/cargo
+      - key: RUSTUP_HOME
+        value: /tmp/rustup
+      - key: MATURIN_CACHE_DIR
+        value: /tmp/maturin

@@ -572,11 +572,11 @@ class LightweightLLMService:
         os.environ["HF_HUB_DISABLE_EXPERIMENTAL_WARNING"] = "1"
         
         self.tokenizer = AutoTokenizer.from_pretrained(
-            "microsoft/Phi-3-mini-4k-instruct",
+            "google/flan-t5-small",
             trust_remote_code=True
         )
         self.model = AutoModelForCausalLM.from_pretrained(
-            "microsoft/Phi-3-mini-4k-instruct",
+            "google/flan-t5-small",
             torch_dtype=torch.float32,
             trust_remote_code=True
         )

@@ -1,3 +1,4 @@
+This is my optiforce_app.py
 
 from flask import Flask, render_template, request, jsonify
 import json
@@ -572,11 +573,11 @@ class LightweightLLMService:
         os.environ["HF_HUB_DISABLE_EXPERIMENTAL_WARNING"] = "1"
         
         self.tokenizer = AutoTokenizer.from_pretrained(
-            "google/flan-t5-small",
+            "microsoft/Phi-3-mini-4k-instruct",
             trust_remote_code=True
         )
         self.model = AutoModelForCausalLM.from_pretrained(
-            "google/flan-t5-small",
+            "microsoft/Phi-3-mini-4k-instruct",
             torch_dtype=torch.float32,
             trust_remote_code=True
         )

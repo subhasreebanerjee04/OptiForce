@@ -578,9 +578,21 @@ class LightweightLLMService:
         )
         self.model = AutoModelForCausalLM.from_pretrained(
             "microsoft/Phi-3-mini-4k-instruct",
-            torch_dtype=torch.float32,
-            trust_remote_code=True
+            torch_dtype=torch.float16,
+            trust_remote_code=True,
+            attn_implementation="flash_attention_2" 
+
         )
+        try:
+            self.model = AutoModelForCausalLM.from_pretrained(
+            "microsoft/Phi-3-mini-4k-instruct",
+            torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+            trust_remote_code=True
+    )
+        except Exception as e:
+            print(f"Model loading failed: {str(e)}")
+            self.model = None  # Fallback to template-based responses
+
         # Apply 4-bit quantization if possible
         if not torch.cuda.is_available():
             self.model = self.model.to(torch.float32)
@@ -736,4 +748,4 @@ def get_job_roles():
     return jsonify(data_service.job_roles)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

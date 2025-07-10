@@ -15,7 +15,7 @@ OPTIFORCE is a user-friendly Flask web application for workforce cost optimizati
 2. Flask web framework
 3. JavaScript (ES6) for frontend interactivity
 4. Chart.js for data visualization
-5. Lightweight LLM integration using Hugging Face Transformers (Phi-3 Mini model)
+5. Lightweight LLM integration using Hugging Face Transformers (Microsoft Phi-3 model)
 
 ## Installation:
 
